@@ -1,6 +1,6 @@
 import logging
 
-#user imports
+# User imports
 from wp_scripts.whatsapp import send_messages
 
 # Set up logging
@@ -13,10 +13,15 @@ logger = logging.getLogger(__name__)
 if __name__ == "__main__":
     import json
 
-    # Load messages from external JSON file
-    # user imports
+    # Load contacts from the external JSON file (updated format)
     with open('./store/messageStore.json', 'r') as f:
-        messages = json.load(f)
+        contacts = json.load(f)
 
-    # Send messages
-    send_messages(messages, keep_open=False, open_browser=False)
+    # Load message template from external JSON file
+    with open('./store/messageTemplate.json', 'r') as f:
+        template_data = json.load(f)
+        sender_name = template_data["SenderName"]
+        message_template = template_data["Message"]
+
+    # Send messages using the template and contact information
+    send_messages(contacts, message_template, sender_name, keep_open=False, open_browser=True)

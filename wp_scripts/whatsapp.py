@@ -18,10 +18,10 @@ logger = logging.getLogger(__name__)
 
 def format_message(template, receiver_name, sender_name):
     """Format the message by replacing placeholders with actual names."""
-    return template.replace("[Receiver Name]", receiver_name).replace("[Sender]", sender_name)
+    return template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name)
 
-def send_messages(messages, keep_open=False, open_browser=True):
-    """Send messages to an array of contacts."""
+def send_messages(contacts, message_template, sender_name, keep_open=False, open_browser=True):
+    """Send messages to a list of contacts with a given message template and sender name."""
     global driver
     driver = None
 
@@ -32,7 +32,7 @@ def send_messages(messages, keep_open=False, open_browser=True):
             chrome_options.add_argument("--headless")
             chrome_options.add_argument("--disable-gpu")
             chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--window-size=1920,1080")-
+            chrome_options.add_argument("--window-size=1920,1080")
 
         chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")
         chrome_options.add_argument("profile-directory=Profile 2")
@@ -46,13 +46,14 @@ def send_messages(messages, keep_open=False, open_browser=True):
         )
         logger.info("Search box found.")
 
-        for message_data in messages:
-            receiver_name = message_data["receiver_name"]  # Get the receiver's name
-            sender_name = message_data["sender_name"]  # Get the sender's name
-            message_template = message_data["message"]  # Get the message template
-            message = format_message(message_template, receiver_name, sender_name)  # Format the message
+        for contact in contacts:
+            receiver_name = contact["Name"]
+            phone_number = contact["Phone_Number"]
 
-            logger.info(f"Trying to send message to {receiver_name}")
+            # Generate personalized message by formatting the template with receiver's and sender's names
+            message = format_message(message_template, receiver_name, sender_name)
+
+            logger.info(f"Trying to send message to {receiver_name} ({phone_number})")
             random_delay(100, 300)
 
             try:
