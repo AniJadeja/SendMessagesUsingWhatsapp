@@ -27,7 +27,7 @@ def load_contacts_from_csv(csv_file_path):
 if __name__ == "__main__":
     import json
 
-    # Load contacts from the CSV file (updated format)
+    # Load contacts from the CSV file
     contacts = load_contacts_from_csv('./store/data.csv')
 
     # Load message template from external JSON file
