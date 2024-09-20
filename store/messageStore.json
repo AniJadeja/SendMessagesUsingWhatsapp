@@ -1,12 +1,12 @@
 [
     {
         "name": "Alice",
-        "number": "+1 (226) 899-6539",
+        "number": "number",
         "message": "Hey Alice!"
     },
     {
         "name": "Bob",
-        "number": "+1 (226) 899-6539",
+        "number": "number",
         "message": "Hello Bob! How are you?"
     }
 ]
