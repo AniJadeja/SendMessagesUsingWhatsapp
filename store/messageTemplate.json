@@ -1,4 +1,4 @@
 {
-    "SenderName": "Brijesh",
-    "Message": "[Receiver Name],\n\nThis is a message from [Sender Name].\n\nPurpose:\n- send a message\n- see what the message is received as\n\nBest regards,\n[Sender Name]"
+    "SenderName": "Parth",
+    "Message": "[Receiver Name],\n\nThis is a automated test message.\n\nPurpose:\n- send a message\n- see what the message is received as\n\nBest regards,\n[Sender Name]"
 }
