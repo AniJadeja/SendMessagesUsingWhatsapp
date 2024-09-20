@@ -1,4 +1,5 @@
 import logging
+import csv
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -25,10 +26,19 @@ def ensure_search_box_cleared(search_box):
     search_box.send_keys(Keys.DELETE)  # Delete selected text
     time.sleep(0.5)  # Delay to ensure action is registered
 
+def write_not_sent_messages(not_sent_contacts):
+    """Write the contacts that were not sent messages to a CSV file."""
+    with open('./store/messagesNotSend.csv', mode='w', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow(['Name', 'Phone_Number'])  # Write header
+        for contact in not_sent_contacts:
+            writer.writerow([contact['Name'], contact['Phone_Number']])  # Write each contact
+
 def send_messages(contacts, message_template, sender_name, keep_open=False, open_browser=True):
     """Send messages to a list of contacts."""
     global driver
     driver = None
+    not_sent_contacts = []  # List to store contacts that were not sent messages
 
     try:
         # Set up Chrome options
@@ -108,6 +118,7 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
                     logger.info("Chat verification succeeded with contact info.")
                 else:
                     logger.info("Chat verification failed.")
+                    not_sent_contacts.append(contact)  # Add to not sent contacts
                     search_box.send_keys(Keys.ESCAPE)  # Press ESC key
                     logger.info("Moving to the next contact.")
                     continue
@@ -148,6 +159,7 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
         log_and_exit(f"An unexpected error occurred: {e}")
 
     finally:
+        write_not_sent_messages(not_sent_contacts)  # Write not sent messages to CSV
         if driver and not keep_open:
             logger.info("Closing the browser...")
             driver.quit()
