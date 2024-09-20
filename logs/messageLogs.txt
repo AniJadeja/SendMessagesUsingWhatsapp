@@ -648,3 +648,467 @@
 2024-09-20 17:28:26,681 - Chat verification failed: Name or phone number not found in header.
 2024-09-20 17:28:26,681 - Moving to the next contact.
 2024-09-20 17:28:26,681 - Closing the browser...
+2024-09-20 17:31:03,735 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:31:07,668 - Search box found.
+2024-09-20 17:31:07,668 - 
+2024-09-20 17:31:07,668 - Trying to send message to Me (2268996539)
+2024-09-20 17:31:08,896 - Search box cleared.
+2024-09-20 17:31:09,847 - Search executed, waiting for chat to open...
+2024-09-20 17:31:09,860 - 'main' div found.
+2024-09-20 17:31:09,860 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:31:10,022 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:31:10,022 - Trying to find the message input box...
+2024-09-20 17:31:10,043 - Message box found.
+2024-09-20 17:31:10,087 - Typing the message...
+2024-09-20 17:31:12,374 - Message typed.
+2024-09-20 17:31:12,735 - Message sent successfully.
+2024-09-20 17:31:13,734 - 
+2024-09-20 17:31:13,734 - 
+2024-09-20 17:31:13,734 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:31:14,832 - Search box cleared.
+2024-09-20 17:31:15,585 - Search executed, waiting for chat to open...
+2024-09-20 17:31:15,602 - 'main' div found.
+2024-09-20 17:31:15,603 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:31:15,642 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:31:15,642 - Moving to the next contact.
+2024-09-20 17:31:15,642 - 
+2024-09-20 17:31:15,642 - Trying to send message to parth (5483330095)
+2024-09-20 17:31:16,773 - Search box cleared.
+2024-09-20 17:31:17,468 - Search executed, waiting for chat to open...
+2024-09-20 17:31:17,480 - 'main' div found.
+2024-09-20 17:31:17,480 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:31:17,644 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:31:17,644 - Moving to the next contact.
+2024-09-20 17:31:17,644 - Closing the browser...
+2024-09-20 17:33:22,409 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:33:25,341 - Search box found.
+2024-09-20 17:33:25,341 - 
+2024-09-20 17:33:25,341 - Trying to send message to Me (2268996539)
+2024-09-20 17:33:26,512 - Search box cleared.
+2024-09-20 17:33:27,469 - Search executed, waiting for chat to open...
+2024-09-20 17:33:27,492 - 'main' div found.
+2024-09-20 17:33:27,492 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:33:27,649 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:33:27,649 - Trying to find the message input box...
+2024-09-20 17:33:27,675 - Message box found.
+2024-09-20 17:33:27,721 - Typing the message...
+2024-09-20 17:33:30,047 - Message typed.
+2024-09-20 17:33:30,240 - Message sent successfully.
+2024-09-20 17:33:30,846 - 
+2024-09-20 17:33:30,846 - 
+2024-09-20 17:33:30,846 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:33:31,990 - Search box cleared.
+2024-09-20 17:33:32,720 - Search executed, waiting for chat to open...
+2024-09-20 17:33:32,746 - 'main' div found.
+2024-09-20 17:33:32,746 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:33:32,771 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:33:32,772 - Moving to the next contact.
+2024-09-20 17:33:32,772 - 
+2024-09-20 17:33:32,772 - Trying to send message to parth (5483330095)
+2024-09-20 17:33:34,125 - Search box cleared.
+2024-09-20 17:33:35,002 - Search executed, waiting for chat to open...
+2024-09-20 17:33:35,021 - 'main' div found.
+2024-09-20 17:33:35,021 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:33:35,219 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:33:35,219 - Moving to the next contact.
+2024-09-20 17:33:35,219 - Closing the browser...
+2024-09-20 17:36:08,285 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:36:11,272 - Search box found.
+2024-09-20 17:36:11,272 - 
+2024-09-20 17:36:11,272 - Trying to send message to Me (2268996539)
+2024-09-20 17:36:12,521 - Search box cleared.
+2024-09-20 17:36:13,399 - Search executed, waiting for chat to open...
+2024-09-20 17:36:13,413 - 'main' div found.
+2024-09-20 17:36:13,414 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:36:13,551 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:36:13,552 - Trying to find the message input box...
+2024-09-20 17:36:13,614 - Message box found.
+2024-09-20 17:36:13,672 - Typing the message...
+2024-09-20 17:36:15,855 - Message typed.
+2024-09-20 17:36:16,216 - Message sent successfully.
+2024-09-20 17:36:16,776 - 
+2024-09-20 17:36:16,777 - 
+2024-09-20 17:36:16,777 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:36:18,024 - Search box cleared.
+2024-09-20 17:36:18,785 - Search executed, waiting for chat to open...
+2024-09-20 17:36:18,799 - 'main' div found.
+2024-09-20 17:36:18,799 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:36:18,833 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:36:18,833 - Moving to the next contact.
+2024-09-20 17:36:18,833 - 
+2024-09-20 17:36:18,833 - Trying to send message to parth (5483330095)
+2024-09-20 17:36:20,086 - Search box cleared.
+2024-09-20 17:36:20,855 - Search executed, waiting for chat to open...
+2024-09-20 17:36:20,867 - 'main' div found.
+2024-09-20 17:36:20,867 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:36:21,065 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:36:21,065 - Moving to the next contact.
+2024-09-20 17:36:21,065 - Closing the browser...
+2024-09-20 17:37:16,287 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:37:19,249 - Search box found.
+2024-09-20 17:37:19,249 - An unexpected error occurred: string indices must be integers, not 'str'
+2024-09-20 17:37:19,249 - Closing the browser...
+2024-09-20 17:38:05,830 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:38:09,748 - Search box found.
+2024-09-20 17:38:09,748 - Trying to send message to Me (2268996539)
+2024-09-20 17:38:10,934 - Search executed, waiting for chat to open...
+2024-09-20 17:38:10,950 - 'main' div found.
+2024-09-20 17:38:10,950 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:38:11,097 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:38:11,098 - Trying to find the message input box...
+2024-09-20 17:38:11,144 - Message box found.
+2024-09-20 17:38:11,177 - Typing the message...
+2024-09-20 17:38:13,052 - Message typed.
+2024-09-20 17:38:13,471 - Message sent successfully.
+2024-09-20 17:38:14,064 - 
+2024-09-20 17:38:14,064 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:38:15,007 - Search executed, waiting for chat to open...
+2024-09-20 17:38:15,023 - 'main' div found.
+2024-09-20 17:38:15,023 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:38:15,046 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:38:15,046 - Moving to the next contact.
+2024-09-20 17:38:15,046 - Trying to send message to parth (5483330095)
+2024-09-20 17:38:16,066 - Search executed, waiting for chat to open...
+2024-09-20 17:38:16,084 - 'main' div found.
+2024-09-20 17:38:16,084 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:38:16,131 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:38:16,132 - Moving to the next contact.
+2024-09-20 17:38:16,132 - Closing the browser...
+2024-09-20 17:38:26,542 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:38:29,475 - Search box found.
+2024-09-20 17:38:29,475 - 
+2024-09-20 17:38:29,475 - Trying to send message to Me (2268996539)
+2024-09-20 17:38:30,058 - Search box cleared.
+2024-09-20 17:38:30,675 - Search executed, waiting for chat to open...
+2024-09-20 17:38:30,693 - 'main' div found.
+2024-09-20 17:38:30,693 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:38:30,860 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:38:30,860 - Trying to find the message input box...
+2024-09-20 17:38:30,875 - Message box found.
+2024-09-20 17:38:30,906 - Typing the message...
+2024-09-20 17:38:33,169 - Message typed.
+2024-09-20 17:38:33,398 - Message sent successfully.
+2024-09-20 17:38:34,320 - 
+2024-09-20 17:38:34,320 - 
+2024-09-20 17:38:34,321 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:38:34,676 - Search box cleared.
+2024-09-20 17:38:35,303 - Search executed, waiting for chat to open...
+2024-09-20 17:38:35,315 - 'main' div found.
+2024-09-20 17:38:35,315 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:38:35,344 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:38:35,344 - Moving to the next contact.
+2024-09-20 17:38:35,345 - 
+2024-09-20 17:38:35,345 - Trying to send message to parth (5483330095)
+2024-09-20 17:38:35,746 - Search box cleared.
+2024-09-20 17:38:36,240 - Search executed, waiting for chat to open...
+2024-09-20 17:38:36,264 - 'main' div found.
+2024-09-20 17:38:36,264 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:38:36,296 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:38:36,296 - Moving to the next contact.
+2024-09-20 17:38:36,296 - Closing the browser...
+2024-09-20 17:38:48,345 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:38:51,258 - Search box found.
+2024-09-20 17:38:51,259 - 
+2024-09-20 17:38:51,259 - Trying to send message to Me (2268996539)
+2024-09-20 17:38:51,880 - Error opening chat: object of type 'NoneType' has no len()
+2024-09-20 17:38:51,881 - Moving to the next contact.
+2024-09-20 17:38:51,881 - 
+2024-09-20 17:38:51,881 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:38:52,385 - Error opening chat: object of type 'NoneType' has no len()
+2024-09-20 17:38:52,386 - Moving to the next contact.
+2024-09-20 17:38:52,386 - 
+2024-09-20 17:38:52,386 - Trying to send message to parth (5483330095)
+2024-09-20 17:38:52,825 - Error opening chat: object of type 'NoneType' has no len()
+2024-09-20 17:38:52,825 - Moving to the next contact.
+2024-09-20 17:38:52,826 - Closing the browser...
+2024-09-20 17:39:05,772 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:39:09,693 - Search box found.
+2024-09-20 17:39:09,693 - 
+2024-09-20 17:39:09,693 - Trying to send message to Me (2268996539)
+2024-09-20 17:39:10,135 - Search box is empty. No need to clear.
+2024-09-20 17:39:10,135 - Search box is already empty.
+2024-09-20 17:39:10,136 - Search box cleared (or it was already empty).
+2024-09-20 17:39:11,008 - Search executed, waiting for chat to open...
+2024-09-20 17:39:11,024 - 'main' div found.
+2024-09-20 17:39:11,024 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:39:11,049 - Chat verification failed: 'WebElement' object has no attribute 'getAttribute'
+2024-09-20 17:39:11,049 - Moving to the next contact.
+2024-09-20 17:39:11,049 - 
+2024-09-20 17:39:11,049 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:39:11,570 - Search box is empty. No need to clear.
+2024-09-20 17:39:11,571 - Search box is already empty.
+2024-09-20 17:39:11,571 - Search box cleared (or it was already empty).
+2024-09-20 17:39:12,330 - Search executed, waiting for chat to open...
+2024-09-20 17:39:12,344 - 'main' div found.
+2024-09-20 17:39:12,344 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:39:12,360 - Chat verification failed: 'WebElement' object has no attribute 'getAttribute'
+2024-09-20 17:39:12,361 - Moving to the next contact.
+2024-09-20 17:39:12,361 - 
+2024-09-20 17:39:12,361 - Trying to send message to parth (5483330095)
+2024-09-20 17:39:12,751 - Search box is empty. No need to clear.
+2024-09-20 17:39:12,751 - Search box is already empty.
+2024-09-20 17:39:12,751 - Search box cleared (or it was already empty).
+2024-09-20 17:39:13,454 - Search executed, waiting for chat to open...
+2024-09-20 17:39:13,464 - 'main' div found.
+2024-09-20 17:39:13,464 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:39:13,477 - Chat verification failed: 'WebElement' object has no attribute 'getAttribute'
+2024-09-20 17:39:13,477 - Moving to the next contact.
+2024-09-20 17:39:13,477 - Closing the browser...
+2024-09-20 17:39:29,570 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:39:32,530 - Search box found.
+2024-09-20 17:39:32,530 - 
+2024-09-20 17:39:32,530 - Trying to send message to Me (2268996539)
+2024-09-20 17:39:33,699 - Search box cleared.
+2024-09-20 17:39:34,596 - Search executed, waiting for chat to open...
+2024-09-20 17:39:34,613 - 'main' div found.
+2024-09-20 17:39:34,613 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:39:34,786 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:39:34,786 - Trying to find the message input box...
+2024-09-20 17:39:34,808 - Message box found.
+2024-09-20 17:39:34,855 - Typing the message...
+2024-09-20 17:39:37,223 - Message typed.
+2024-09-20 17:39:37,607 - Message sent successfully.
+2024-09-20 17:39:38,402 - 
+2024-09-20 17:39:38,402 - 
+2024-09-20 17:39:38,402 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:39:39,558 - Search box cleared.
+2024-09-20 17:39:40,298 - Search executed, waiting for chat to open...
+2024-09-20 17:39:40,311 - 'main' div found.
+2024-09-20 17:39:40,311 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:39:40,328 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:39:40,328 - Moving to the next contact.
+2024-09-20 17:39:40,328 - 
+2024-09-20 17:39:40,328 - Trying to send message to parth (5483330095)
+2024-09-20 17:39:41,450 - Search box cleared.
+2024-09-20 17:39:42,269 - Search executed, waiting for chat to open...
+2024-09-20 17:39:42,282 - 'main' div found.
+2024-09-20 17:39:42,282 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:39:42,441 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:39:42,441 - Moving to the next contact.
+2024-09-20 17:39:42,441 - Closing the browser...
+2024-09-20 17:39:57,070 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:40:00,046 - Search box found.
+2024-09-20 17:40:00,047 - An unexpected error occurred: string indices must be integers, not 'str'
+2024-09-20 17:40:00,047 - Closing the browser...
+2024-09-20 17:40:47,449 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:40:51,359 - Search box found.
+2024-09-20 17:40:51,359 - 
+2024-09-20 17:40:51,359 - Trying to send message to Me (2268996539)
+2024-09-20 17:40:52,497 - Search box cleared.
+2024-09-20 17:40:53,342 - Search executed, waiting for chat to open...
+2024-09-20 17:40:53,359 - 'main' div found.
+2024-09-20 17:40:53,359 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:40:53,538 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:40:53,539 - Trying to find the message input box...
+2024-09-20 17:40:53,552 - Message box found.
+2024-09-20 17:40:53,579 - Typing the message...
+2024-09-20 17:40:56,120 - Message typed.
+2024-09-20 17:40:56,400 - Message sent successfully.
+2024-09-20 17:40:57,282 - 
+2024-09-20 17:40:57,282 - 
+2024-09-20 17:40:57,282 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:40:58,259 - Search box cleared.
+2024-09-20 17:40:58,936 - Search executed, waiting for chat to open...
+2024-09-20 17:40:58,940 - 'main' div found.
+2024-09-20 17:40:58,940 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:40:58,948 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:40:58,949 - Moving to the next contact.
+2024-09-20 17:40:58,949 - 
+2024-09-20 17:40:58,949 - Trying to send message to parth (5483330095)
+2024-09-20 17:41:00,057 - Search box cleared.
+2024-09-20 17:41:00,839 - Search executed, waiting for chat to open...
+2024-09-20 17:41:00,853 - 'main' div found.
+2024-09-20 17:41:00,853 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:41:01,052 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:41:01,052 - Moving to the next contact.
+2024-09-20 17:41:01,052 - Closing the browser...
+2024-09-20 17:41:20,929 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:41:24,008 - Search box found.
+2024-09-20 17:41:24,008 - 
+2024-09-20 17:41:24,008 - Trying to send message to Me (2268996539)
+2024-09-20 17:41:25,234 - Search box cleared.
+2024-09-20 17:41:26,015 - Search executed, waiting for chat to open...
+2024-09-20 17:41:26,032 - 'main' div found.
+2024-09-20 17:41:26,032 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:41:26,172 - Trying to find: Me or 2268996539
+2024-09-20 17:41:26,172 - Found chat title: Message yourself
+2024-09-20 17:41:26,172 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:41:26,172 - Trying to find the message input box...
+2024-09-20 17:41:26,219 - Message box found.
+2024-09-20 17:41:26,245 - Typing the message...
+2024-09-20 17:41:28,525 - Message typed.
+2024-09-20 17:41:28,782 - Message sent successfully.
+2024-09-20 17:41:29,436 - 
+2024-09-20 17:41:29,436 - 
+2024-09-20 17:41:29,436 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:41:30,554 - Search box cleared.
+2024-09-20 17:41:31,127 - Search executed, waiting for chat to open...
+2024-09-20 17:41:31,141 - 'main' div found.
+2024-09-20 17:41:31,141 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:41:31,157 - Trying to find: Brijesh or  88834576
+2024-09-20 17:41:31,158 - Found chat title: Message yourself
+2024-09-20 17:41:31,158 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:41:31,158 - Moving to the next contact.
+2024-09-20 17:41:31,158 - 
+2024-09-20 17:41:31,158 - Trying to send message to parth (5483330095)
+2024-09-20 17:41:32,452 - Search box cleared.
+2024-09-20 17:41:33,175 - Search executed, waiting for chat to open...
+2024-09-20 17:41:33,191 - 'main' div found.
+2024-09-20 17:41:33,191 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:41:33,370 - Trying to find: parth or 5483330095
+2024-09-20 17:41:33,370 - Found chat title: click here for contact info
+2024-09-20 17:41:33,370 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:41:33,370 - Moving to the next contact.
+2024-09-20 17:41:33,370 - Closing the browser...
+2024-09-20 17:51:40,524 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:51:43,408 - Search box found.
+2024-09-20 17:51:43,408 - 
+2024-09-20 17:51:43,408 - Trying to send message to Me (2268996539)
+2024-09-20 17:51:44,625 - Search box cleared.
+2024-09-20 17:51:45,478 - Search executed, waiting for chat to open...
+2024-09-20 17:51:45,497 - 'main' div found.
+2024-09-20 17:51:45,497 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:51:45,670 - Trying to find: Me or 2268996539
+2024-09-20 17:51:45,670 - Found chat title: Message yourself
+2024-09-20 17:51:45,670 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:51:45,670 - Trying to find the message input box...
+2024-09-20 17:51:45,681 - Message box found.
+2024-09-20 17:51:45,706 - Typing the message...
+2024-09-20 17:51:47,504 - Message typed.
+2024-09-20 17:51:47,834 - Message sent successfully.
+2024-09-20 17:51:48,354 - 
+2024-09-20 17:51:48,354 - 
+2024-09-20 17:51:48,354 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:51:49,577 - Search box cleared.
+2024-09-20 17:51:50,450 - Search executed, waiting for chat to open...
+2024-09-20 17:51:50,464 - 'main' div found.
+2024-09-20 17:51:50,464 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:51:50,498 - Trying to find: Brijesh or  88834576
+2024-09-20 17:51:50,498 - Found chat title: Message yourself
+2024-09-20 17:51:50,499 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:51:50,499 - Issuing ESC key to close the chat...
+2024-09-20 17:51:50,668 - Moving to the next contact.
+2024-09-20 17:51:50,668 - 
+2024-09-20 17:51:50,668 - Trying to send message to parth (5483330095)
+2024-09-20 17:51:51,943 - Search box cleared.
+2024-09-20 17:51:52,686 - Search executed, waiting for chat to open...
+2024-09-20 17:51:52,697 - 'main' div found.
+2024-09-20 17:51:52,698 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:51:52,872 - Trying to find: parth or 5483330095
+2024-09-20 17:51:52,872 - Found chat title: click here for contact info
+2024-09-20 17:51:52,873 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:51:52,873 - Issuing ESC key to close the chat...
+2024-09-20 17:51:53,003 - Moving to the next contact.
+2024-09-20 17:51:53,004 - Closing the browser...
+2024-09-20 17:57:08,512 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:57:11,416 - Search box found.
+2024-09-20 17:57:11,416 - 
+2024-09-20 17:57:11,416 - Trying to send message to Me (2268996539)
+2024-09-20 17:57:12,455 - Search box cleared.
+2024-09-20 17:57:13,324 - Search executed, waiting for chat to open...
+2024-09-20 17:57:13,349 - 'main' div found.
+2024-09-20 17:57:13,350 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:57:13,496 - Trying to find: Me or 2268996539
+2024-09-20 17:57:17,497 - Found chat title: Message yourself
+2024-09-20 17:57:17,497 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:57:17,498 - Trying to find the message input box...
+2024-09-20 17:57:17,518 - Message box found.
+2024-09-20 17:57:17,599 - Typing the message...
+2024-09-20 17:57:19,917 - Message typed.
+2024-09-20 17:57:20,126 - Message sent successfully.
+2024-09-20 17:57:20,880 - 
+2024-09-20 17:57:20,880 - 
+2024-09-20 17:57:20,881 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:57:22,102 - Search box cleared.
+2024-09-20 17:57:22,875 - Search executed, waiting for chat to open...
+2024-09-20 17:57:22,891 - 'main' div found.
+2024-09-20 17:57:22,891 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:57:22,908 - Trying to find: Brijesh or  88834576
+2024-09-20 17:57:26,908 - Found chat title: Message yourself
+2024-09-20 17:57:26,908 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:57:26,908 - Issuing ESC key to close the chat...
+2024-09-20 17:57:27,054 - Moving to the next contact.
+2024-09-20 17:57:27,055 - 
+2024-09-20 17:57:27,055 - Trying to send message to parth (5483330095)
+2024-09-20 17:57:28,122 - Search box cleared.
+2024-09-20 17:57:28,842 - Search executed, waiting for chat to open...
+2024-09-20 17:57:28,860 - 'main' div found.
+2024-09-20 17:57:28,860 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:57:29,035 - Trying to find: parth or 5483330095
+2024-09-20 17:57:33,036 - Found chat title: click here for contact info
+2024-09-20 17:57:33,036 - Chat verification succeeded with contact info.
+2024-09-20 17:57:33,037 - Closing the browser...
+2024-09-20 17:58:18,469 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 17:58:21,421 - Search box found.
+2024-09-20 17:58:21,421 - 
+2024-09-20 17:58:21,421 - Trying to send message to Me (2268996539)
+2024-09-20 17:58:22,706 - Search box cleared.
+2024-09-20 17:58:23,653 - Search executed, waiting for chat to open...
+2024-09-20 17:58:23,668 - 'main' div found.
+2024-09-20 17:58:23,668 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:58:23,814 - Trying to find: Me or 2268996539
+2024-09-20 17:58:27,814 - Found chat title: Message yourself
+2024-09-20 17:58:27,814 - Verified chat with Me (2268996539) is open.
+2024-09-20 17:58:27,814 - Trying to find the message input box...
+2024-09-20 17:58:27,835 - Message box found.
+2024-09-20 17:58:27,872 - Typing the message...
+2024-09-20 17:58:30,362 - Message typed.
+2024-09-20 17:58:30,771 - Message sent successfully.
+2024-09-20 17:58:31,752 - 
+2024-09-20 17:58:31,752 - 
+2024-09-20 17:58:31,752 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 17:58:32,844 - Search box cleared.
+2024-09-20 17:58:33,618 - Search executed, waiting for chat to open...
+2024-09-20 17:58:33,629 - 'main' div found.
+2024-09-20 17:58:33,629 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:58:33,656 - Trying to find: Brijesh or  88834576
+2024-09-20 17:58:37,657 - Found chat title: Message yourself
+2024-09-20 17:58:37,657 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 17:58:37,658 - Issuing ESC key to close the chat...
+2024-09-20 17:58:37,856 - Moving to the next contact.
+2024-09-20 17:58:37,856 - 
+2024-09-20 17:58:37,856 - Trying to send message to parth (5483330095)
+2024-09-20 17:58:39,211 - Search box cleared.
+2024-09-20 17:58:40,016 - Search executed, waiting for chat to open...
+2024-09-20 17:58:40,028 - 'main' div found.
+2024-09-20 17:58:40,028 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 17:58:40,206 - Trying to find: parth or 5483330095
+2024-09-20 17:58:44,206 - Found chat title: click here for contact info
+2024-09-20 17:58:44,207 - Chat verification succeeded with contact info.
+2024-09-20 17:58:44,207 - Closing the browser...
+2024-09-20 18:00:00,370 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 18:00:03,307 - Search box found.
+2024-09-20 18:00:03,307 - 
+2024-09-20 18:00:03,307 - Trying to send message to Me (2268996539)
+2024-09-20 18:00:04,522 - Search box cleared.
+2024-09-20 18:00:05,366 - Search executed, waiting for chat to open...
+2024-09-20 18:00:05,383 - 'main' div found.
+2024-09-20 18:00:05,383 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 18:00:05,573 - Trying to find: Me or 2268996539
+2024-09-20 18:00:09,574 - Found chat title: Message yourself
+2024-09-20 18:00:09,575 - Verified chat with Me (2268996539) is open.
+2024-09-20 18:00:09,575 - 
+2024-09-20 18:00:09,575 - Trying to send message to Brijesh ( 88834576)
+2024-09-20 18:00:10,818 - Search box cleared.
+2024-09-20 18:00:11,598 - Search executed, waiting for chat to open...
+2024-09-20 18:00:11,625 - 'main' div found.
+2024-09-20 18:00:11,626 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 18:00:11,638 - Trying to find: Brijesh or  88834576
+2024-09-20 18:00:15,639 - Found chat title: Message yourself
+2024-09-20 18:00:15,639 - Chat verification failed: Name or phone number not found in header.
+2024-09-20 18:00:15,639 - Issuing ESC key to close the chat...
+2024-09-20 18:00:15,825 - Moving to the next contact.
+2024-09-20 18:00:15,825 - 
+2024-09-20 18:00:15,825 - Trying to send message to parth (5483330095)
+2024-09-20 18:00:16,956 - Search box cleared.
+2024-09-20 18:00:17,619 - Search executed, waiting for chat to open...
+2024-09-20 18:00:17,646 - 'main' div found.
+2024-09-20 18:00:17,646 - Verifying if the correct chat is open (name or phone number check)...
+2024-09-20 18:00:17,821 - Trying to find: parth or 5483330095
+2024-09-20 18:00:21,822 - Found chat title: click here for contact info
+2024-09-20 18:00:21,823 - Chat verification succeeded with contact info.
+2024-09-20 18:00:21,845 - Message box found.
+2024-09-20 18:00:21,890 - Typing the message...
+2024-09-20 18:00:24,287 - Message typed.
+2024-09-20 18:00:24,620 - Message sent successfully.
+2024-09-20 18:00:24,620 - Closing the browser...
