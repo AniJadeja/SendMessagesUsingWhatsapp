@@ -145,3 +145,141 @@
 2024-09-20 13:50:46,004 -   Chat verification failed: cannot access local variable 'main_div' where it is not associated with a value
 2024-09-20 13:50:46,004 -   Moving to the next contact.
 2024-09-20 13:50:46,004 - 
+2024-09-20 13:54:39,509 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 13:54:42,435 - Search box found.
+2024-09-20 13:54:42,435 - Trying to send message to +1 (226) 899-6539
+2024-09-20 13:54:42,776 -   Trying to open the chat...
+2024-09-20 13:54:43,541 -   Search executed, waiting for chat to open...
+2024-09-20 13:54:43,578 -   'main' div found.
+2024-09-20 13:54:43,579 -   Trying to verify if the chat is open...
+2024-09-20 13:54:43,605 -   Verified that chat with +1 (226) 899-6539 is open.
+2024-09-20 13:54:43,605 -   Trying to find the message input box...
+2024-09-20 13:54:43,721 -   Message box found.
+2024-09-20 13:54:43,786 -   Typing the message...
+2024-09-20 13:54:44,994 -   Typing done.
+2024-09-20 13:54:45,289 -   Error sending message: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.58)
+Stacktrace:
+#0 0x55b57a0ede4e <unknown>
+#1 0x55b579de932b <unknown>
+#2 0x55b579dc11a5 <unknown>
+#3 0x55b579e65f6a <unknown>
+#4 0x55b579e7c2e3 <unknown>
+#5 0x55b579e5c793 <unknown>
+#6 0x55b579e2969d <unknown>
+#7 0x55b579e2a3be <unknown>
+#8 0x55b57a0be40e <unknown>
+#9 0x55b57a0c1903 <unknown>
+#10 0x55b57a0c1348 <unknown>
+#11 0x55b57a0c1db5 <unknown>
+#12 0x55b57a0aec7b <unknown>
+#13 0x55b57a0c216e <unknown>
+#14 0x55b57a099022 <unknown>
+#15 0x55b57a0dd295 <unknown>
+#16 0x55b57a0dd4d3 <unknown>
+#17 0x55b57a0ecbc1 <unknown>
+#18 0x7fb546e3b6d7 start_thread
+#19 0x7fb546ebf60c __clone3
+
+2024-09-20 13:54:45,290 -   Moving to the next contact.
+2024-09-20 13:54:45,290 - 
+2024-09-20 13:54:45,290 - Trying to send message to +1 (226) 123-4567
+2024-09-20 13:54:45,435 -   Error opening chat: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=129.0.6668.58)
+Stacktrace:
+#0 0x55b57a0ede4e <unknown>
+#1 0x55b579de932b <unknown>
+#2 0x55b579dc11a5 <unknown>
+#3 0x55b579e65f6a <unknown>
+#4 0x55b579e7c2e3 <unknown>
+#5 0x55b579e5c793 <unknown>
+#6 0x55b579e2969d <unknown>
+#7 0x55b579e2a3be <unknown>
+#8 0x55b57a0be40e <unknown>
+#9 0x55b57a0c1903 <unknown>
+#10 0x55b57a0c1348 <unknown>
+#11 0x55b57a0c1db5 <unknown>
+#12 0x55b57a0aec7b <unknown>
+#13 0x55b57a0c216e <unknown>
+#14 0x55b57a099022 <unknown>
+#15 0x55b57a0dd295 <unknown>
+#16 0x55b57a0dd4d3 <unknown>
+#17 0x55b57a0ecbc1 <unknown>
+#18 0x7fb546e3b6d7 start_thread
+#19 0x7fb546ebf60c __clone3
+
+2024-09-20 13:54:45,436 -   Moving to the next contact.
+2024-09-20 13:54:45,436 - 
+2024-09-20 13:54:45,436 - Closing the browser...
+2024-09-20 13:56:05,574 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 13:56:08,451 - Search box found.
+2024-09-20 13:56:08,451 - Trying to send message to +1 (226) 899-6539
+2024-09-20 13:56:08,750 -   Trying to open the chat...
+2024-09-20 13:56:09,604 -   Search executed, waiting for chat to open...
+2024-09-20 13:56:09,644 -   'main' div found.
+2024-09-20 13:56:09,644 -   Trying to verify if the chat is open...
+2024-09-20 13:56:09,821 -   Verified that chat with +1 (226) 899-6539 is open.
+2024-09-20 13:56:09,821 -   Trying to find the message input box...
+2024-09-20 13:56:09,851 -   Message box found.
+2024-09-20 13:56:09,887 -   Typing the message...
+2024-09-20 13:56:11,096 -   Typing done.
+2024-09-20 13:56:11,442 -   Trying to send message...
+2024-09-20 13:56:12,309 -   Message sent successfully.
+2024-09-20 13:56:12,310 - 
+2024-09-20 13:56:12,310 - Trying to send message to +1 (226) 123-4567
+2024-09-20 13:56:12,645 -   Trying to open the chat...
+2024-09-20 13:56:13,174 -   Search executed, waiting for chat to open...
+2024-09-20 13:56:13,177 -   'main' div found.
+2024-09-20 13:56:13,177 -   Trying to verify if the chat is open...
+2024-09-20 13:56:23,606 - Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))': /session/a499cab3ae63f496de287e4390aa00ec/element/f.D35E5F4F92F7D121E150D88AD6CF7232.d.8DAC63C2167AC24B289280B31DFDF933.e.214/text
+2024-09-20 13:56:47,225 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 13:56:50,091 - Search box found.
+2024-09-20 13:56:50,091 - Trying to send message to +1 (226) 899-6539
+2024-09-20 13:56:50,381 -   Trying to open the chat...
+2024-09-20 13:56:51,059 -   Search executed, waiting for chat to open...
+2024-09-20 13:56:51,081 -   'main' div found.
+2024-09-20 13:56:51,081 -   Trying to verify if the chat is open...
+2024-09-20 13:56:51,216 -   Verified that chat with +1 (226) 899-6539 is open.
+2024-09-20 13:56:51,216 -   Trying to find the message input box...
+2024-09-20 13:56:51,292 -   Message box found.
+2024-09-20 13:56:51,333 -   Typing the message...
+2024-09-20 13:56:52,432 -   Typing done.
+2024-09-20 13:56:52,719 -   Trying to send message...
+2024-09-20 13:56:53,658 -   Message sent successfully.
+2024-09-20 13:56:53,658 - 
+2024-09-20 13:56:53,658 - Trying to send message to +1 (226) 226-899-6539
+2024-09-20 13:56:53,895 -   Trying to open the chat...
+2024-09-20 13:56:54,497 -   Search executed, waiting for chat to open...
+2024-09-20 13:56:54,507 -   'main' div found.
+2024-09-20 13:56:54,507 -   Trying to verify if the chat is open...
+2024-09-20 13:57:45,174 - WhatsApp Web opened successfully. Waiting for the page to load.
+2024-09-20 13:57:48,050 - Search box found.
+2024-09-20 13:57:48,050 - Trying to send message to +1 (226) 899-6539
+2024-09-20 13:57:48,369 -   Trying to open the chat...
+2024-09-20 13:57:49,048 -   Search executed, waiting for chat to open...
+2024-09-20 13:57:49,062 -   'main' div found.
+2024-09-20 13:57:49,062 -   Trying to verify if the chat is open...
+2024-09-20 13:57:49,108 -   Verified that chat with +1 (226) 899-6539 is open.
+2024-09-20 13:57:49,108 -   Trying to find the message input box...
+2024-09-20 13:57:49,265 -   Message box found.
+2024-09-20 13:57:49,338 -   Typing the message...
+2024-09-20 13:57:50,570 -   Typing done.
+2024-09-20 13:57:50,973 -   Trying to send message...
+2024-09-20 13:57:51,493 -   Message sent successfully.
+2024-09-20 13:57:51,493 - 
+2024-09-20 13:57:51,493 - Trying to send message to +1 (226) 899-6539
+2024-09-20 13:57:51,724 -   Trying to open the chat...
+2024-09-20 13:57:52,482 -   Search executed, waiting for chat to open...
+2024-09-20 13:57:52,496 -   'main' div found.
+2024-09-20 13:57:52,496 -   Trying to verify if the chat is open...
+2024-09-20 13:57:52,579 -   Verified that chat with +1 (226) 899-6539 is open.
+2024-09-20 13:57:52,579 -   Trying to find the message input box...
+2024-09-20 13:57:52,586 -   Message box found.
+2024-09-20 13:57:52,605 -   Typing the message...
+2024-09-20 13:57:55,213 -   Typing done.
+2024-09-20 13:57:55,440 -   Trying to send message...
+2024-09-20 13:57:55,953 -   Message sent successfully.
+2024-09-20 13:57:55,954 - 
+2024-09-20 13:57:55,954 - Closing the browser...
