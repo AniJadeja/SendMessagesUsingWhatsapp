@@ -6,10 +6,10 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-#user imports
-from .utils import random_delay, log_and_exit, recursive_search_with_timeout
 from selenium.common.exceptions import TimeoutException
+
+# User imports
+from .utils import random_delay, log_and_exit, recursive_search_with_timeout
 
 # Set the path to your ChromeDriver
 service = Service('/usr/bin/chromedriver')
@@ -43,10 +43,10 @@ def send_messages(messages, keep_open=False, open_browser=True):
         logger.info("Search box found.")
 
         for message_data in messages:
-            number = message_data["number"]
+            name = message_data["name"]  # Get the name instead of number
             message = message_data["message"]
 
-            logger.info(f"Trying to send message to {number}")
+            logger.info(f"Trying to send message to {name}")
             random_delay(100, 300)
 
             try:
@@ -55,7 +55,7 @@ def send_messages(messages, keep_open=False, open_browser=True):
                 random_delay(100, 300)
 
                 search_box.clear()
-                search_box.send_keys(number)
+                search_box.send_keys(name)  # Search using the contact name
                 search_box.send_keys(Keys.RETURN)
                 logger.info("  Search executed, waiting for chat to open...")
 
@@ -80,8 +80,8 @@ def send_messages(messages, keep_open=False, open_browser=True):
             # Verify that the chat is open by checking for the phone number
             try:
                 logger.info("  Trying to verify if the chat is open...")
-                if recursive_search_with_timeout(main_div, number, timeout=3):
-                    logger.info(f"  Verified that chat with {number} is open.")
+                if recursive_search_with_timeout(main_div, name, timeout=3):
+                    logger.info(f"  Verified that chat with {name} is open.")
                 else:
                     logger.info("  Chat verification failed or timed out.")
                     logger.info("  Moving to the next contact.")
