@@ -8,23 +8,28 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from concurrent.futures import ThreadPoolExecutor, TimeoutError
 
 # Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s', handlers=[
+    logging.FileHandler("messageLogs.txt"),
+    logging.StreamHandler()
+])
 logger = logging.getLogger(__name__)
 
-# Set up Chrome options with a custom user profile
+# Set up Chrome options
 chrome_options = Options()
-chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")  # New profile directory
-chrome_options.add_argument("profile-directory=Profile 2")  # Use the existing profile
+chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")
+chrome_options.add_argument("profile-directory=Profile 2")
 
-# Set the path to your ChromeDriver and create the driver instance
-service = Service('/usr/bin/chromedriver')  # Provide the path to ChromeDriver
-driver = webdriver.Chrome(service=service, options=chrome_options)
+# Set the path to your ChromeDriver
+service = Service('/usr/bin/chromedriver')
 
 def log_and_exit(error_message):
     logger.error(error_message)
-    driver.quit()
+    if 'driver' in globals() and driver:
+        driver.quit()
     exit(1)
 
 def recursive_search(element, number):
@@ -36,82 +41,109 @@ def recursive_search(element, number):
             return True
     return False
 
+def recursive_search_with_timeout(element, number, timeout=3):
+    """Wrapper function to add timeout to recursive_search"""
+    with ThreadPoolExecutor() as executor:
+        future = executor.submit(recursive_search, element, number)
+        try:
+            return future.result(timeout=timeout)
+        except TimeoutError:
+            return False
+
 def random_delay(min_ms, max_ms):
     """Generate a random delay between min and max milliseconds."""
     time.sleep(random.uniform(min_ms / 1000, max_ms / 1000))
 
-def send_messages(messages, keep_open=False):
+def send_messages(messages, keep_open=False, open_browser=True):
     """Send messages to an array of contacts."""
-    try:
-        # Open WhatsApp Web
-        driver.get("https://web.whatsapp.com")
-        logger.info("WhatsApp Web opened successfully. Waiting for the page to load.")
+    global driver
+    driver = None
 
-        # Wait for the search box to appear
-        search_box = WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, '//div[@contenteditable="true" and @data-tab="3"]'))
-        )
-        logger.info("Search box found.")
+    try:
+        if open_browser:
+            driver = webdriver.Chrome(service=service, options=chrome_options)
+            driver.get("https://web.whatsapp.com")
+            logger.info("WhatsApp Web opened successfully. Waiting for the page to load.")
+
+            search_box = WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.XPATH, '//div[@contenteditable="true" and @data-tab="3"]'))
+            )
+            logger.info("Search box found.")
+        else:
+            logger.info("Browser opening skipped.")
 
         for message_data in messages:
             number = message_data["number"]
             message = message_data["message"]
 
             logger.info(f"Trying to send message to {number}")
-            random_delay(100, 300)  # Reduced delay
+            random_delay(100, 300)
 
-            # Click on the search box and search for the contact/number
             try:
-                search_box.click()
-                logger.info("  Trying to open the chat...")
-                random_delay(100, 300)  # Reduced delay
+                if open_browser:
+                    search_box.click()
+                    logger.info("  Trying to open the chat...")
+                    random_delay(100, 300)
 
-                search_box.send_keys(number)
-                search_box.send_keys(Keys.RETURN)  # Press Enter to confirm the search
-                logger.info("  Chat opened successfully. Verifying...")
-                random_delay(100, 300)  # Reduced delay
-            except Exception as e:
-                log_and_exit(f"Failed to interact with the search box: {e}")
-
-            # Wait for the chat window (`main` div) to load after hitting RETURN
-            def wait_for_main_div(driver, timeout=30):
-                logger.info("  Waiting for the 'main' div to appear after opening chat...")
-                for _ in range(timeout):
+                    search_box.clear()
+                    search_box.send_keys(number)
+                    search_box.send_keys(Keys.RETURN)
+                    logger.info("  Search executed, waiting for chat to open...")
+                    
+                    # Wait for the chat window (`main` div) to load with a 3-second timeout
                     try:
-                        main_div = driver.find_element(By.ID, "main")
-                        if main_div:
-                            logger.info("  'main' div found.")
-                            return main_div
-                    except Exception:
-                        logger.info(f"  'main' div not found, retrying... ({_ + 1}/{timeout} seconds)")
-                    random_delay(500, 1000)
-                return None
+                        main_div = WebDriverWait(driver, 3).until(
+                            EC.presence_of_element_located((By.ID, "main"))
+                        )
+                        logger.info("  'main' div found.")
+                    except TimeoutException:
+                        logger.info("  Chat didn't open within 3 seconds.")
+                        logger.info("  Moving to the next contact.")
+                        logger.info("")  # Empty line to distinguish logs
+                        continue
+                else:
+                    logger.info("  Chat opening skipped due to browser not being opened.")
 
-            # Call the function to wait for the 'main' div
-            main_div = wait_for_main_div(driver)
-            if not main_div:
-                log_and_exit(f"Failed to locate the 'main' div after 30 seconds.")
+            except Exception as e:
+                logger.info(f"  Error opening chat: {str(e)}")
+                logger.info("  Moving to the next contact.")
+                logger.info("")  # Empty line to distinguish logs
+                continue
 
-            # Verify that the chat is open by checking for the phone number in the 'main' div
+            # Verify that the chat is open by checking for the phone number
             try:
                 logger.info("  Trying to verify if the chat is open...")
-                if recursive_search(main_div, number):
+                if recursive_search_with_timeout(main_div, number, timeout=3):
                     logger.info(f"  Verified that chat with {number} is open.")
                 else:
-                    log_and_exit(f"Chat with {number} is not open.")
+                    logger.info("  Chat verification failed or timed out.")
+                    logger.info("  Moving to the next contact.")
+                    logger.info("")  # Empty line to distinguish logs
+                    continue
             except Exception as e:
-                log_and_exit(f"Failed to verify if the chat is open for {number}: {e}")
+                logger.info(f"  Chat verification failed: {str(e)}")
+                logger.info("  Moving to the next contact.")
+                logger.info("")  # Empty line to distinguish logs
+                continue
 
             # Wait for the message input box to appear
             try:
                 logger.info("  Trying to find the message input box...")
                 message_box_xpath = '//div[@contenteditable="true" and @data-tab="10"]'
-                message_box = WebDriverWait(driver, 30).until(
+                message_box = WebDriverWait(driver, 3).until(
                     EC.presence_of_element_located((By.XPATH, message_box_xpath))
                 )
                 logger.info("  Message box found.")
+            except TimeoutException:
+                logger.info("  Message box not found within 3 seconds.")
+                logger.info("  Moving to the next contact.")
+                logger.info("")  # Empty line to distinguish logs
+                continue
             except Exception as e:
-                log_and_exit(f"Failed to find the message box: {e}")
+                logger.info(f"  Error finding message box: {str(e)}")
+                logger.info("  Moving to the next contact.")
+                logger.info("")  # Empty line to distinguish logs
+                continue
 
             # Click the message box to make it active and type the message
             try:
@@ -119,20 +151,26 @@ def send_messages(messages, keep_open=False):
                 logger.info("  Typing the message...")
                 for char in message:
                     message_box.send_keys(char)
-                    random_delay(100, 300)  # Reduced delay between typing each character
+                    random_delay(20, 50)  # Reduced delay between typing each character
                 logger.info("  Typing done.")
-                random_delay(100, 300)  # Delay before sending the message
+                random_delay(100, 300)
             except Exception as e:
-                log_and_exit(f"Failed to type the message: {e}")
+                logger.info(f"  Error typing message: {str(e)}")
+                logger.info("  Moving to the next contact.")
+                logger.info("")  # Empty line to distinguish logs
+                continue
 
             # Send the message
             try:
-                message_box.send_keys(Keys.RETURN)  # Press Enter to send the message
+                message_box.send_keys(Keys.RETURN)
                 logger.info("  Trying to send message...")
-                random_delay(500, 1000)  # Reduced delay after clicking send
+                random_delay(500, 1000)  # Delay after clicking send
                 logger.info("  Message sent successfully.")
             except Exception as e:
-                log_and_exit(f"Failed to send the message: {e}")
+                logger.info(f"  Error sending message: {str(e)}")
+                logger.info("  Moving to the next contact.")
+                logger.info("")  # Empty line to distinguish logs
+                continue
 
             logger.info("")  # Empty line to distinguish logs
 
@@ -140,7 +178,7 @@ def send_messages(messages, keep_open=False):
         log_and_exit(f"An unexpected error occurred: {e}")
 
     # Decide whether to keep the Selenium session open or quit
-    if not keep_open:
+    if driver and not keep_open:
         logger.info("Closing the browser...")
         driver.quit()
 
@@ -150,4 +188,4 @@ messages = [
     { "name": "Bob", "number": "+1 (226) 123-4567", "message": "Hello Bob! How are you?" }
 ]
 
-send_messages(messages, keep_open=False)
+send_messages(messages, keep_open=False, open_browser=True)
