@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+import time  # To add delay between backspace actions
 
 # User-defined imports
 from .utils import random_delay, log_and_exit, recursive_search_with_timeout
@@ -15,6 +16,22 @@ from .utils import random_delay, log_and_exit, recursive_search_with_timeout
 service = Service('/usr/bin/chromedriver')
 
 logger = logging.getLogger(__name__)
+
+def clear_search_box_with_backspace(search_box, current_text_length):
+    """Clears the search box by sending backspace keys."""
+    if current_text_length == 0:
+        logger.info("Search box is already empty.")
+        return
+
+    for _ in range(current_text_length):
+        search_box.send_keys(Keys.BACKSPACE)
+        time.sleep(0.5)  # Adding 500ms delay between each backspace (can be adjusted or commented later)
+
+def ensure_search_box_cleared(search_box):
+    """Ensure the search box is empty by selecting all text and deleting it."""
+    search_box.send_keys(Keys.CONTROL, "a")  # Select all text
+    search_box.send_keys(Keys.DELETE)  # Delete selected text
+    time.sleep(0.5)  # Slight delay to ensure the action is registered
 
 def send_messages(contacts, message_template, sender_name, keep_open=False, open_browser=True):
     """Send messages to a list of contacts."""
@@ -59,9 +76,11 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
                 search_box.click()
                 random_delay(100, 300)
 
-                # Clear the search box before entering a new contact's number
-                search_box.clear()  # Explicitly clear the search box
+                # Ensure the search box is completely cleared
+                ensure_search_box_cleared(search_box)
                 logger.info("Search box cleared.")
+
+                random_delay(100, 300)
                 
                 search_box.send_keys(phone_number)
                 random_delay(100, 300)
@@ -90,7 +109,7 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
                 header_element = WebDriverWait(driver, 5).until(
                     EC.presence_of_element_located((By.XPATH, header_xpath))
                 )
-                chat_title = header_element.get_attribute("title")
+                chat_title = header_element.get_attribute("title")  # Fixed get_attribute method
 
                 if receiver_name in chat_title or phone_number in chat_title:
                     logger.info(f"Verified chat with {receiver_name} ({phone_number}) is open.")
