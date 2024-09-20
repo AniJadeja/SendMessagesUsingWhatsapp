@@ -27,11 +27,21 @@ try:
     
     # Click on the search box and search for the contact/number
     search_box.click()
-    phone_number = "1234567890"  # Replace with the contact number or name
+    phone_number = "2268996539"  # The phone number you want to search for
     search_box.send_keys(phone_number)
-    search_box.send_keys(Keys.RETURN)  # Press Enter to select the contact
+    search_box.send_keys(Keys.RETURN)  # Press Enter to confirm the search
 
-    print(f"Searched for {phone_number} successfully.")
+    # Wait for the result to appear
+    time.sleep(2)  # Adjust as necessary
+
+    # Find the chat with the exact number and click on it
+    chat_xpath = f'//span[@title="{phone_number}"]'
+    chat = WebDriverWait(driver, 30).until(
+        EC.element_to_be_clickable((By.XPATH, chat_xpath))
+    )
+    chat.click()  # Click on the chat to open the message panel
+
+    print(f"Opened chat for {phone_number} successfully.")
 
 except Exception as e:
     print(f"An error occurred: {e}")
