@@ -16,6 +16,10 @@ service = Service('/usr/bin/chromedriver')
 
 logger = logging.getLogger(__name__)
 
+def format_message(template, receiver_name, sender_name):
+    """Format the message by replacing placeholders with actual names."""
+    return template.replace("[Receiver Name]", receiver_name).replace("[Sender]", sender_name)
+
 def send_messages(messages, keep_open=False, open_browser=True):
     """Send messages to an array of contacts."""
     global driver
@@ -28,7 +32,7 @@ def send_messages(messages, keep_open=False, open_browser=True):
             chrome_options.add_argument("--headless")
             chrome_options.add_argument("--disable-gpu")
             chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--window-size=1920,1080")
+            chrome_options.add_argument("--window-size=1920,1080")-
 
         chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")
         chrome_options.add_argument("profile-directory=Profile 2")
@@ -43,10 +47,12 @@ def send_messages(messages, keep_open=False, open_browser=True):
         logger.info("Search box found.")
 
         for message_data in messages:
-            name = message_data["name"]  # Get the name instead of number
-            message = message_data["message"]
+            receiver_name = message_data["receiver_name"]  # Get the receiver's name
+            sender_name = message_data["sender_name"]  # Get the sender's name
+            message_template = message_data["message"]  # Get the message template
+            message = format_message(message_template, receiver_name, sender_name)  # Format the message
 
-            logger.info(f"Trying to send message to {name}")
+            logger.info(f"Trying to send message to {receiver_name}")
             random_delay(100, 300)
 
             try:
@@ -55,7 +61,7 @@ def send_messages(messages, keep_open=False, open_browser=True):
                 random_delay(100, 300)
 
                 search_box.clear()
-                search_box.send_keys(name)  # Search using the contact name
+                search_box.send_keys(receiver_name)  # Search using the contact name
                 search_box.send_keys(Keys.RETURN)
                 logger.info("  Search executed, waiting for chat to open...")
 
@@ -77,11 +83,11 @@ def send_messages(messages, keep_open=False, open_browser=True):
                 logger.info("")  # Empty line to distinguish logs
                 continue
 
-            # Verify that the chat is open by checking for the phone number
+            # Verify that the chat is open
             try:
                 logger.info("  Trying to verify if the chat is open...")
-                if recursive_search_with_timeout(main_div, name, timeout=3):
-                    logger.info(f"  Verified that chat with {name} is open.")
+                if recursive_search_with_timeout(main_div, receiver_name, timeout=3):
+                    logger.info(f"  Verified that chat with {receiver_name} is open.")
                 else:
                     logger.info("  Chat verification failed or timed out.")
                     logger.info("  Moving to the next contact.")
@@ -116,9 +122,16 @@ def send_messages(messages, keep_open=False, open_browser=True):
             try:
                 message_box.click()
                 logger.info("  Typing the message...")
-                for char in message:
-                    message_box.send_keys(char)
-                    random_delay(20, 50)  # Reduced delay between typing each character
+                
+                # Split the message by newline and use Shift+Enter for new lines
+                lines = message.split('\n')
+                for i, line in enumerate(lines):
+                    message_box.send_keys(line)
+                    if i < len(lines) - 1:
+                        # Use Shift + Enter to create a new line without sending the message
+                        message_box.send_keys(Keys.SHIFT, Keys.ENTER)
+                    random_delay(20, 50)  # Reduced delay between typing each line
+
                 logger.info("  Typing done.")
                 random_delay(100, 300)
             except Exception as e:
