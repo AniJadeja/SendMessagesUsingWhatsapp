@@ -188,4 +188,4 @@ messages = [
     { "name": "Bob", "number": "+1 (226) 123-4567", "message": "Hello Bob! How are you?" }
 ]
 
-send_messages(messages, keep_open=False, open_browser=True)
+send_messages(messages, keep_open=False, open_browser=False)

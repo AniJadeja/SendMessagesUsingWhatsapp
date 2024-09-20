@@ -132,3 +132,16 @@
 2024-09-20 13:50:02,333 -   Moving to the next contact.
 2024-09-20 13:50:02,334 - 
 2024-09-20 13:50:02,334 - Closing the browser...
+2024-09-20 13:50:45,518 - Browser opening skipped.
+2024-09-20 13:50:45,518 - Trying to send message to +1 (226) 899-6539
+2024-09-20 13:50:45,720 -   Chat opening skipped due to browser not being opened.
+2024-09-20 13:50:45,720 -   Trying to verify if the chat is open...
+2024-09-20 13:50:45,720 -   Chat verification failed: cannot access local variable 'main_div' where it is not associated with a value
+2024-09-20 13:50:45,721 -   Moving to the next contact.
+2024-09-20 13:50:45,721 - 
+2024-09-20 13:50:45,721 - Trying to send message to +1 (226) 123-4567
+2024-09-20 13:50:46,003 -   Chat opening skipped due to browser not being opened.
+2024-09-20 13:50:46,003 -   Trying to verify if the chat is open...
+2024-09-20 13:50:46,004 -   Chat verification failed: cannot access local variable 'main_div' where it is not associated with a value
+2024-09-20 13:50:46,004 -   Moving to the next contact.
+2024-09-20 13:50:46,004 - 
