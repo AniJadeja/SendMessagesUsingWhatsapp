@@ -8,13 +8,16 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-import time  # To add delay between actions
+from webdriver_manager.chrome import ChromeDriverManager
+import os  
+import time  
 
 # User-defined imports
 from .utils import random_delay, log_and_exit
 
 # Set the path to your ChromeDriver
-service = Service('C:\Program Files\chromedriver.exe')
+service = Service(ChromeDriverManager().install())
+driver = webdriver.Chrome(service=service)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -47,6 +50,12 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
             chrome_options.add_argument("--disable-gpu")
             chrome_options.add_argument("--no-sandbox")
             chrome_options.add_argument("--window-size=1920,1080")
+
+        home_dir = os.path.expanduser("~")
+        chrome_options.add_argument(f"user-data-dir={os.path.join(home_dir, 'selenium-chrome-profile')}")
+        chrome_options.add_argument("profile-directory=Profile 2")
+        # chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")
+        # chrome_options.add_argument("profile-directory=Profile 2")
 
         driver = webdriver.Chrome(service=service, options=chrome_options)
         driver.get("https://web.whatsapp.com")
