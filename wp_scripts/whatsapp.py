@@ -14,7 +14,7 @@ import time  # To add delay between actions
 from .utils import random_delay, log_and_exit
 
 # Set the path to your ChromeDriver
-service = Service('/usr/bin/chromedriver')
+service = Service('C:\Program Files\chromedriver.exe')
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -28,9 +28,8 @@ def ensure_search_box_cleared(search_box):
 
 def write_not_sent_messages(not_sent_contacts):
     """Write the contacts that were not sent messages to a CSV file."""
-    with open('./store/messagesNotSend.csv', mode='w', newline='', encoding='utf-8') as file:
+    with open('./store/messagesNotSend.csv', mode='a', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
-        writer.writerow(['Name', 'Phone_Number'])  # Write header
         for contact in not_sent_contacts:
             writer.writerow([contact['Name'], contact['Phone_Number']])  # Write each contact
 
@@ -49,9 +48,6 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
             chrome_options.add_argument("--no-sandbox")
             chrome_options.add_argument("--window-size=1920,1080")
 
-        chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")
-        chrome_options.add_argument("profile-directory=Profile 2")
-
         driver = webdriver.Chrome(service=service, options=chrome_options)
         driver.get("https://web.whatsapp.com")
         logger.info("WhatsApp Web opened successfully. Waiting for the page to load.")
@@ -66,7 +62,12 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
             phone_number = contact["Phone_Number"]
 
             # Replace placeholders in the message template
-            personalized_message = message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name)
+            personalized_message = message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name).replace('"', '\\"') #message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name)
+
+
+            # Replace apostrophes and other special characters if needed
+            personalized_message = personalized_message.replace("â€™", "'")  # Replace smart apostrophe
+            #personalized_message = personalized_message.encode('utf-8').decode('utf-8')  # Ensure proper encoding
 
             logger.info("")  # Empty line to separate logs
             logger.info(f"Trying to send message to {receiver_name} ({phone_number})")
