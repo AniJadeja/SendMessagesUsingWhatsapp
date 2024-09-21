@@ -1,6 +1,10 @@
 import logging
+import csv
+import hashlib
 import time
 import threading
+import os
+import traceback
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
@@ -8,20 +12,33 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from webdriver_manager.chrome import ChromeDriverManager
-import os
-import traceback
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+def create_profile_hash(phone_number):
+    """Create a unique hash for the given phone number."""
+    return hashlib.sha256(phone_number.encode()).hexdigest()
+
+def write_registration_record(phone_number, profile_hash):
+    """Append the registration record to the CSV file."""
+    os.makedirs('./store', exist_ok=True)  # Ensure the 'store' directory exists
+    
+    with open('./store/registrationRecords.csv', mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        writer.writerow([phone_number, profile_hash])  # Write phone number and its hash
+
 def open_whatsapp_web(phone_number):
     """Open WhatsApp Web, wait for the QR code, click the link, enter the phone number, and print the link code."""
+    profile_hash = create_profile_hash(phone_number)
+    write_registration_record(phone_number, profile_hash)
+    
     # Set up Chrome options
     chrome_options = Options()
     home_dir = os.path.expanduser("~")
-    chrome_options.add_argument(f"user-data-dir={os.path.join(home_dir, 'selenium-chrome-profile')}")
-    chrome_options.add_argument("profile-directory=Profile 2")
+    chrome_options.add_argument(f"user-data-dir={os.path.join(home_dir, 'selenium-chrome-profile', profile_hash)}")
+    chrome_options.add_argument("profile-directory=Profile 1")  # Use the hashed profile
 
     # Initialize WebDriver
     service = Service(ChromeDriverManager().install())
@@ -99,4 +116,4 @@ def keep_browser_open(driver):
 
 if __name__ == "__main__":
     # Example phone number; replace with the desired number
-    open_whatsapp_web("2268996539")
+    open_whatsapp_web("+1234567890")
