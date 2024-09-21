@@ -15,10 +15,6 @@ import time
 # User-defined imports
 from .utils import random_delay, log_and_exit
 
-# Set the path to your ChromeDriver
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
-
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -38,26 +34,25 @@ def write_not_sent_messages(not_sent_contacts):
 
 def send_messages(contacts, message_template, sender_name, keep_open=False, open_browser=True):
     """Send messages to a list of contacts."""
-    global driver
-    driver = None
     not_sent_contacts = []  # List to store contacts that were not sent messages
 
+    # Set up Chrome options
+    chrome_options = Options()
+    if not open_browser:
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--window-size=1920,1080")
+
+    home_dir = os.path.expanduser("~")
+    chrome_options.add_argument(f"user-data-dir={os.path.join(home_dir, 'selenium-chrome-profile')}")
+    chrome_options.add_argument("profile-directory=Profile 2")
+
+    # Initialize WebDriver only once here
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
     try:
-        # Set up Chrome options
-        chrome_options = Options()
-        if not open_browser:
-            chrome_options.add_argument("--headless")
-            chrome_options.add_argument("--disable-gpu")
-            chrome_options.add_argument("--no-sandbox")
-            chrome_options.add_argument("--window-size=1920,1080")
-
-        home_dir = os.path.expanduser("~")
-        chrome_options.add_argument(f"user-data-dir={os.path.join(home_dir, 'selenium-chrome-profile')}")
-        chrome_options.add_argument("profile-directory=Profile 2")
-        # chrome_options.add_argument("user-data-dir=/home/kanbhaa/selenium-chrome-profile")
-        # chrome_options.add_argument("profile-directory=Profile 2")
-
-        driver = webdriver.Chrome(service=service, options=chrome_options)
         driver.get("https://web.whatsapp.com")
         logger.info("WhatsApp Web opened successfully. Waiting for the page to load.")
 
@@ -71,14 +66,8 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
             phone_number = contact["Phone_Number"]
 
             # Replace placeholders in the message template
-            personalized_message = message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name).replace('"', '\\"') #message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name)
+            personalized_message = message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name).replace('"', '\\"') 
 
-
-            # Replace apostrophes and other special characters if needed
-            personalized_message = personalized_message.replace("â€™", "'")  # Replace smart apostrophe
-            #personalized_message = personalized_message.encode('utf-8').decode('utf-8')  # Ensure proper encoding
-
-            logger.info("")  # Empty line to separate logs
             logger.info(f"Trying to send message to {receiver_name} ({phone_number})")
 
             random_delay(100, 300)
@@ -119,7 +108,7 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
                 header_element = WebDriverWait(driver, 5).until(
                     EC.presence_of_element_located((By.XPATH, header_xpath))
                 )
-                chat_title = header_element.get_attribute("title")
+                chat_title = header_element.getAttribute("title")
                 logger.info(f"Found chat title: {chat_title}")
 
                 if receiver_name in chat_title or phone_number in chat_title:
@@ -172,4 +161,5 @@ def send_messages(contacts, message_template, sender_name, keep_open=False, open
         write_not_sent_messages(not_sent_contacts)  # Write not sent messages to CSV
         if driver and not keep_open:
             logger.info("Closing the browser...")
-            driver.quit()
+            driver.quit()  # Make sure to close the browser
+
