@@ -1,0 +1,183 @@
+import logging
+import csv
+import time
+import threading
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, WebDriverException
+from webdriver_manager.chrome import ChromeDriverManager
+import os
+import traceback
+
+# User-defined imports
+from .utils import random_delay  # Adjust import based on your project structure
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+def write_not_sent_messages(not_sent_contacts):
+    """Write the contacts that were not sent messages to a CSV file."""
+    with open('./store/messagesNotSend.csv', mode='a', newline='', encoding='utf-8') as file:
+        writer = csv.writer(file)
+        for contact in not_sent_contacts:
+            writer.writerow([contact['Name'], contact['Phone_Number']])  # Write each contact
+
+def keep_browser_open(driver):
+    """Keep the browser open indefinitely."""
+    try:
+        while True:
+            time.sleep(1)  # Sleep to avoid busy-waiting
+    except KeyboardInterrupt:
+        logger.info("Exiting loop and closing the browser.")
+
+def send_messages(contacts, message_template, sender_name, keep_open=False, open_browser=True):
+    """Send messages to a list of contacts."""
+    not_sent_contacts = []  # List to store contacts that were not sent messages
+
+    # Set up Chrome options
+    chrome_options = Options()
+    if not open_browser:
+        chrome_options.add_argument("--headless")
+        chrome_options.add_argument("--disable-gpu")
+        chrome_options.add_argument("--no-sandbox")
+        chrome_options.add_argument("--window-size=1920,1080")
+
+    home_dir = os.path.expanduser("~")
+    chrome_options.add_argument(f"user-data-dir={os.path.join(home_dir, 'selenium-chrome-profile')}")
+    chrome_options.add_argument("profile-directory=Profile 2")
+
+    # Initialize WebDriver
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
+    try:
+        driver.get("https://web.whatsapp.com")
+        logger.info("WhatsApp Web opened successfully. Waiting for the page to load.")
+
+        try:
+            qr_code_canvas_xpath = '//canvas[@aria-label="Scan this QR code to link a device!"]'
+            WebDriverWait(driver, 30).until(
+                EC.presence_of_element_located((By.XPATH, qr_code_canvas_xpath))
+            )
+            logger.info("QR code canvas found. Waiting for 2 seconds.")
+            time.sleep(2)  # Wait for 2 seconds after the canvas appears
+
+            link_button_xpath = '//span[text()="Link with phone number"]'
+            link_button = WebDriverWait(driver, 30).until(
+                EC.element_to_be_clickable((By.XPATH, link_button_xpath))
+            )
+            logger.info("Link with phone number button found, clicking it.")
+            link_button.click()
+
+        except TimeoutException:
+            logger.warning("QR code canvas not found. Proceeding without clicking the link.")
+
+        search_box = WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, '//div[@contenteditable="true" and @data-tab="3"]'))
+        )
+        logger.info("Search box found.")
+
+        # Start the browser keeping loop in a separate thread
+        threading.Thread(target=keep_browser_open, args=(driver,), daemon=True).start()
+
+        for contact in contacts:
+            receiver_name = contact["Name"]
+            phone_number = contact["Phone_Number"]
+
+            # Replace placeholders in the message template
+            personalized_message = message_template.replace("[Receiver Name]", receiver_name).replace("[Sender Name]", sender_name).replace('"', '\\"')
+
+            logger.info(f"Trying to send message to {receiver_name} ({phone_number})")
+
+            random_delay(100, 300)
+
+            try:
+                search_box.click()
+                random_delay(100, 300)
+
+                search_box.send_keys(Keys.CONTROL, "a")
+                search_box.send_keys(Keys.DELETE)
+                logger.info("Search box cleared.")
+
+                random_delay(100, 300)
+
+                search_box.send_keys(phone_number)
+                random_delay(100, 300)
+
+                search_box.send_keys(Keys.RETURN)
+                logger.info("Search executed, waiting for chat to open...")
+
+                try:
+                    main_div = WebDriverWait(driver, 5).until(
+                        EC.presence_of_element_located((By.ID, "main"))
+                    )
+                    logger.info("'main' div found.")
+                except TimeoutException:
+                    logger.info("Chat didn't open within 5 seconds.")
+                    logger.info("Moving to the next contact.")
+                    continue
+
+            except Exception as e:
+                logger.error(f"Error opening chat: {str(e)}")
+                logger.error(traceback.format_exc())  # Log the full traceback
+                continue
+
+            try:
+                logger.info("Verifying if the correct chat is open...")
+                header_xpath = '//header//span[@title]'
+                header_element = WebDriverWait(driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, header_xpath))
+                )
+                chat_title = header_element.getAttribute("title")
+                logger.info(f"Found chat title: {chat_title}")
+
+                if receiver_name in chat_title or phone_number in chat_title:
+                    logger.info(f"Verified chat with {receiver_name} ({phone_number}) is open.")
+                elif "click here for contact info" in chat_title:
+                    logger.info("Chat verification succeeded with contact info.")
+                else:
+                    logger.info("Chat verification failed.")
+                    not_sent_contacts.append(contact)  # Add to not sent contacts
+                    search_box.send_keys(Keys.ESCAPE)  # Press ESC key
+                    logger.info("Moving to the next contact.")
+                    continue
+
+                message_box_xpath = '//div[@contenteditable="true" and @data-tab="10"]'
+                message_box = WebDriverWait(driver, 5).until(
+                    EC.presence_of_element_located((By.XPATH, message_box_xpath))
+                )
+                logger.info("Message box found.")
+
+                message_box.click()
+                logger.info("Typing the message...")
+                for line in personalized_message.split('\n'):
+                    message_box.send_keys(line)
+                    message_box.send_keys(Keys.SHIFT, Keys.ENTER)  # Shift + Enter for new line
+                    random_delay(50, 100)  # Delay between lines
+                logger.info("Message typed.")
+                random_delay(100, 300)
+
+                message_box.send_keys(Keys.RETURN)  # Send the message
+                logger.info("Attempting to send the message...")
+
+                time.sleep(2)
+
+            except Exception as e:
+                logger.error(f"Error during message sending: {str(e)}")
+                logger.error(traceback.format_exc())  # Log the full traceback
+                continue
+
+    except Exception as e:
+        logger.error(f"An unexpected error occurred: {e}")
+        logger.error(traceback.format_exc())  # Log the full traceback
+
+    finally:
+        write_not_sent_messages(not_sent_contacts)  # Write not sent messages to CSV
+        logger.info("Closing the browser...")
+        driver.quit()  # Make sure to close the browser
