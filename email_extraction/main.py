@@ -2,7 +2,7 @@ import mailbox
 import os
 import sys
 import time
-
+from datetime import datetime
 
 def loader(message, duration=5):
     """Displays a simple loading animation."""
@@ -23,6 +23,10 @@ else:
     current_dir = os.path.dirname(os.path.abspath(__file__))  # Script path
 
 mbox_path = os.path.join(current_dir, mbox_file)
+
+# Log the start time
+start_time = datetime.now()
+print(f"Start time: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
 # Start the loader
 loader("Loading MBOX file ", duration=5)
@@ -138,12 +142,11 @@ include_terms = {
     "tutanota",
 }
 
-
 error_contacts = set()
 ignored_file = os.path.join(current_dir, "ignored.csv")
 with open(ignored_file, "a") as f:
     f.write('"Name","Email"\n')
-    f.close()
+
 # Iterate through all the messages in the MBOX file
 for message in mbox:
     try:
@@ -201,17 +204,11 @@ with open(error_file, "w") as f:
 
 print("Error contacts written to error_context.csv")
 
-# Check if contacts are found
-if not contacts:
-    print("No contacts found after filtering.")
-else:
-    print(f"Found {len(contacts)} contacts.")
+# Log the end time
+end_time = datetime.now()
+print(f"End time: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
 
-# Writing contacts to output.csv
-output_file = os.path.join(current_dir, "output.csv")
-with open(output_file, "w") as f:
-    f.write('"Name","Email"\n')
-    for line in contacts:
-        f.write(line + "\n")
-
-print("Output written to output.csv")
+# Calculate the total runtime
+elapsed_time = end_time - start_time
+minutes, seconds = divmod(elapsed_time.total_seconds(), 60)
+print(f"Total time taken: {int(minutes)} minutes and {int(seconds)} seconds.")
