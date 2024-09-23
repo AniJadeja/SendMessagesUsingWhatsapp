@@ -1,1 +1,6 @@
 __pycache__
+*.mbox
+*.csv
+build
+dist
+*.spec
